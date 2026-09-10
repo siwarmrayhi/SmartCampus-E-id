@@ -88,21 +88,7 @@ _person_detector = mp_vision.ObjectDetector.create_from_options(_detector_option
 
 
 def detect_persons(image_bgr: np.ndarray) -> list:
-    """
-    Détecte les personnes présentes dans l'image (MediaPipe Object
-    Detector, filtré sur la catégorie "person").
 
-    MODIFIÉ POUR LE DIAGNOSTIC (track_id qui change à tort) : renvoie
-    désormais aussi la confiance RÉELLE de MediaPipe par détection —
-    avant, cette valeur était calculée mais jamais transmise en dehors
-    de ce fichier. AUCUN autre comportement n'a changé.
-
-    Retour :
-        [
-            {"bbox": [left, top, width, height], "confidence": float},
-            ...
-        ]
-    """
 
     # MediaPipe attend du RGB, notre pipeline travaille en BGR (OpenCV)
     image_rgb = cv2.cvtColor(image_bgr, cv2.COLOR_BGR2RGB)
@@ -281,8 +267,7 @@ def compute_average_embedding(
 
         if faces:
 
-            # Pour l'enrollment actuel :
-            # on prend le premier visage détecté.
+            
             embeddings.append(
                 faces[0].embedding
             )

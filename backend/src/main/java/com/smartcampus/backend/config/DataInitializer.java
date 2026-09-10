@@ -6,20 +6,11 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 
-/**
- * Problème de "l'œuf et la poule" : créer un compte nécessite d'être ADMIN,
- * mais le tout premier compte n'existe pas encore. Cette classe crée un
- * compte admin par défaut au démarrage, UNIQUEMENT si aucun utilisateur
- * n'existe déjà en base — pour ne jamais écraser des comptes réels.
- *
- * SÉCURITÉ : changez ce mot de passe immédiatement après la première
- * connexion — il est volontairement simple et visible ici pour la phase
- * de développement, à ne jamais garder tel quel en production.
- */
+
 @Component
 public class DataInitializer implements CommandLineRunner {
 
-    private static final String EMAIL_DEFAUT = "admin@smartcampus.local";
+    private static final String EMAIL_DEFAUT = "siwarmrayhi0@gmail.com";
     private static final String MOT_DE_PASSE_DEFAUT = "ChangeMoi123!";
 
     private final UtilisateurRepository utilisateurRepository;

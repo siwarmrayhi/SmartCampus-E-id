@@ -18,12 +18,6 @@ class FaceResult(BaseModel):
     similarite_max: Optional[float] = None
     raison: Optional[str] = None
     avertissement: Optional[str] = None
-
-    # NOUVEAU — nécessaire pour le traitement spécialisé des alertes
-    # (confirmer/corriger une identité, enrôler depuis une alerte).
-    # Présent uniquement pour "reconnu" et "inconnu" — pas pour
-    # spoof_detecte/detection_incertaine, où l'embedding ne serait pas
-    # fiable de toute façon.
     embedding: Optional[list[float]] = None
 
 

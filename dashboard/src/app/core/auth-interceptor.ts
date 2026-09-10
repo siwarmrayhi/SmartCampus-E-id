@@ -18,7 +18,7 @@ export const authInterceptor: HttpInterceptorFn = (req, next) => {
       // NOUVEAU — session expirée ou invalide : on déconnecte
       // automatiquement plutôt que de laisser la personne bloquée sur
       // une page qui ne répond plus.
-      if (erreur.status === 401 || erreur.status === 403) {
+      if (erreur.status === 401) {
         auth.logout();
       }
       return throwError(() => erreur);
